@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -204,9 +205,109 @@ public class CommonFunction {
 		 
 	 }
 	 
+	 public String getText(WebElement element) 
+	 {
+	String text= element.getText();
+	 return text;
 	 
+	 }
 	 
+	 public boolean IselementPresent(WebElement element)
+	 {
+		 boolean flag = element.isDisplayed();
+		 return flag;
+		 
+	 }
+	 
+	 public String getValue(WebElement element,String attribute)
+	 {
+		 String value = element.getAttribute(attribute);
+		 return value;
+	 }
+	 
+	 public void clearData(WebElement element) {
+		 
+		 element.clear();
+	 }
+	 
+	 public boolean checkElementEnable(WebElement element) 
+	 
+	 {
+		 boolean flag=element.isEnabled();
+		 return flag;
+		 
+	 }
 
+	 public boolean isCheckBoxSelected(WebElement element)
+	 {
+		 boolean flag =element.isSelected();
+		 return flag;
+	 }
+	 
+	 public String checkImageCSS(WebElement element)
+	 {
+		 String color =element.getCssValue("color");
+		 return color;
+	 }
+	 
+	 public void dragAndDrop(WebElement source,WebElement target)
+	 {
+		 Actions action = new Actions(driver);
+		 action.dragAndDrop(source, target).build().perform();
+		 
+	 }
+	 
+	 public void acceptAlertBox()
+	 {
+		 Alert alert = driver.switchTo().alert();
+		 alert.accept();
+	 }
+	 
+	 public void dismisAlertBox()
+	 {
+		 Alert alert = driver.switchTo().alert();
+		 alert.dismiss();
+	 }
+	 
+	 public String getAlertBoxText()
+	 {
+		 Alert alert = driver.switchTo().alert();
+		String text= alert.getText();
+		return text;
+	 }
+	 
+	 public void moveToFrame(WebElement element)
+	 {
+		 driver.switchTo().frame(element);
+	 }
+	 
+	 public void refresh() 
+	 {
+		 driver.navigate().refresh();
+	 }
+	 
+	 public String getCurrentURL() {
+		String currentURL= driver.getCurrentUrl();
+		return currentURL;
+	 }
+	 
+	 public String getTitelText()
+	 {
+		 String title= driver.getTitle();
+		 return title;
+	 }
+	 
+	 public void maxWindow()
+	 {
+		 driver.manage().window().maximize();
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 }
 
 
