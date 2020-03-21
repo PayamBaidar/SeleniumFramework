@@ -11,7 +11,12 @@ import com.company.profile.FirefoxBrowserProfile;
 
 public class WebDriverManager implements webDriverFactory {
 
+	
 	protected WebDriver driver=null;
+	
+	/**
+	 * this method is used to initialize the driver 
+	 */
 	public void initalizeDriver() {
     
 
