@@ -12,7 +12,7 @@ import com.company.profile.FirefoxBrowserProfile;
 public class WebDriverManager implements webDriverFactory {
 
 	
-	protected WebDriver driver=null;
+	public WebDriver driver=null;
 	
 	/**
 	 * this method is used to initialize the driver 
@@ -29,14 +29,12 @@ public class WebDriverManager implements webDriverFactory {
 				WebDriverCapbiltyBuilder chromeCap=new WebDriverCapbiltyBuilder();
                 ChromeProfile profile=new ChromeProfile();
 				driver=new ChromeDriver(profile.option);
-				driver.get("https://www.google.com");
 				driver.manage().window().maximize();
 				   break;
 			case "firefox":
 				WebDriverCapbiltyBuilder firefoxCap=new WebDriverCapbiltyBuilder();
                 FirefoxBrowserProfile firefoxprofile=new FirefoxBrowserProfile();
 				driver=new FirefoxDriver(firefoxprofile.option);
-				driver.get("https://www.google.com");
 				driver.manage().window().maximize();
 
 				break;

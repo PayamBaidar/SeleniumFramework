@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
 
+import org.jetbrains.annotations.TestOnly;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -16,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.company.exception.PropertyNotFoundException;
 
 public class CommonFunction {
-	protected WebDriver driver;
+	public WebDriver driver;
 	
 	/**
 	 * @description This method is used for reading any properties extension file
@@ -25,7 +26,6 @@ public class CommonFunction {
 	 * @param fileName(which file you want to read)
 	 * @return This method return String type of value against property key.
 	 */
-	
 	public String readPropertyFile(String key,String path,String fileName)
 	{
 		
@@ -93,7 +93,7 @@ public class CommonFunction {
 	  }
 	  
 	  /**
-	   * 
+	   * @enterData this method is used to send the text into a field  
 	   * @param element
 	   * @param data
 	   */
@@ -104,7 +104,8 @@ public class CommonFunction {
 	  }
 	  
 	  /**
-	   * 
+	   * @author Baidar
+	   * @navigateUrl This method is used to get the URL
 	   * @param url
 	   */
 	  public void navigateUrl(String url)
@@ -114,7 +115,8 @@ public class CommonFunction {
 	  }
 	  
 	  /**
-	   * 
+	   * @author Baidar
+	   * @switchToFrame This method is used to switch to a frame
 	   * @param element
 	   */
 	  public void switchToFrame(WebElement element)
@@ -124,7 +126,8 @@ public class CommonFunction {
 	  }
 	  
 	  /**
-	   * 
+	   * @author Baidar
+	   * @windowhandle This method is used to handle the window throw Iterator 
 	   */
 	 public void windowhandle()
 	 {
@@ -138,7 +141,8 @@ public class CommonFunction {
 		 
 	 }
 	 /**
-	  * 
+	  * @author Baidar
+	  * @selectDropdownbyIndex This method is used from select class to select the dropdown by (index)
 	  * @param element
 	  * @param index
 	  */
@@ -148,7 +152,8 @@ public class CommonFunction {
 		 select.selectByIndex(index);
 	 }
 	 /**
-	  * 
+	  * @author Baidar
+	  * @selectDropdownbyIndex This method is used from select class to select the dropdown by (value)
 	  * @param element
 	  * @param value
 	  */
@@ -158,7 +163,8 @@ public class CommonFunction {
 		 select.selectByValue(value);
 	 }
 	 /**
-	  * 
+	  * @author Baidar
+	  * @selectDropdownbyIndex This method is used from select class to select the dropdown by (text)
 	  * @param element
 	  * @param text
 	  */
@@ -168,11 +174,8 @@ public class CommonFunction {
 	 }
 	 
 	 /**
-	  * 
-	  * @param element
-	  */
-	 /**
-	  * 
+	  * @author Baidar
+	  * @clickUsingActions This method is used to click using Action class
 	  * @param element
 	  */
 	 public void clickUsingActions(WebElement element)
@@ -184,7 +187,8 @@ public class CommonFunction {
 	 }
 	 
 	 /**
-	  * 
+	  *@author Baidar
+	  *@clickusingEnterKey This method is used to click using keybord Enter using Action class
 	  * @param element
 	  */
 	 public void clickusingEnterKey(WebElement element)
@@ -194,7 +198,7 @@ public class CommonFunction {
 		 
 	 }
 	 /**
-	  * This is javascript method
+	  *@clickusingJavascript This method is used to click on any Element to click using (JavascriptExecuter)
 	  * @author Baidar
 	  * @param element
 	  */
@@ -205,6 +209,13 @@ public class CommonFunction {
 		 
 	 }
 	 
+	 /**
+	  * @author Baidar
+	  * @getText  This method is used to get text 
+	  * @param element
+	  * @return
+	  */
+	 
 	 public String getText(WebElement element) 
 	 {
 	String text= element.getText();
@@ -212,11 +223,21 @@ public class CommonFunction {
 	 
 	 }
 	 
+	 /**
+	  * @IselementPresent This method is used to show is the element is Displayed 
+	  * @param element
+	  * @return
+	  */
 	 public boolean IselementPresent(WebElement element)
 	 {
 		 boolean flag = element.isDisplayed();
 		 return flag;
 		 
+	 }
+	 
+	 
+	 public void assertElement(boolean actual,boolean expected)
+	 {
 	 }
 	 
 	 public String getValue(WebElement element,String attribute)
@@ -225,11 +246,23 @@ public class CommonFunction {
 		 return value;
 	 }
 	 
+	 /**
+	  * @author Baidar
+	  * @clearData This method is used to clear the data from the field before doning anything else 
+	  * @param element
+	  */
+	 
 	 public void clearData(WebElement element) {
 		 
 		 element.clear();
 	 }
 	 
+	 /**
+	  * @author Baidar
+	  * @checkElementEnable This method is used to check is the Elements Inabilities  
+	  * @param element
+	  * @return
+	  */
 	 public boolean checkElementEnable(WebElement element) 
 	 
 	 {
@@ -302,9 +335,11 @@ public class CommonFunction {
 		 driver.manage().window().maximize();
 	 }
 	 
+	 public void TearDown()
+	 {
+	 driver.quit();
 	 
-	 
-	 
+	 }
 	 
 	 
 	 
