@@ -1,9 +1,5 @@
 package com.company.builder;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import com.company.exception.PropertyNotFoundException;
 import com.company.utils.CommonFunction;
 import com.company.utils.PathSetting;
@@ -12,7 +8,6 @@ public class WebDriverCapbiltyBuilder extends Capibilities {
 	
     CommonFunction com=new CommonFunction();
     PathSetting path=new PathSetting();
-    protected WebDriver driver;
     
     public WebDriverCapbiltyBuilder() {
 		

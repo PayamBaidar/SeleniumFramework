@@ -1,15 +1,15 @@
 package com.company.wait;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.company.factory.WebDriverManager;
+
 public class ExplictlyWait {
-	protected WebDriver driver;
 	
 	@SuppressWarnings("deprecation")
-	WebDriverWait wait = new WebDriverWait(driver, 30, 1);	
+	WebDriverWait wait = new WebDriverWait(WebDriverManager.driver, 30, 1);	
 	
 	public void waitforElementVisablity(WebElement element)
 	{

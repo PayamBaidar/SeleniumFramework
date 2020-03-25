@@ -15,9 +15,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.company.exception.PropertyNotFoundException;
+import com.company.factory.WebDriverManager;
 
 public class CommonFunction {
-	public WebDriver driver;
 	
 	/**
 	 * @description This method is used for reading any properties extension file
@@ -110,7 +110,7 @@ public class CommonFunction {
 	   */
 	  public void navigateUrl(String url)
 	  {
-		  driver.get(url);
+		  WebDriverManager.driver.get(url);
 		  
 	  }
 	  
@@ -122,7 +122,7 @@ public class CommonFunction {
 	  public void switchToFrame(WebElement element)
 	  {
 		  
-		driver.switchTo().frame(element);
+		WebDriverManager.driver.switchTo().frame(element);
 	  }
 	  
 	  /**
@@ -131,12 +131,12 @@ public class CommonFunction {
 	   */
 	 public void windowhandle()
 	 {
-		Set<String> window = driver.getWindowHandles();
+		Set<String> window = WebDriverManager.driver.getWindowHandles();
 		Iterator<String> itr = window.iterator();
 		while (itr.hasNext()){
 			
 			String windowID= itr.next();
-			driver.switchTo().window(windowID);
+			WebDriverManager.driver.switchTo().window(windowID);
 		}
 		 
 	 }
@@ -181,7 +181,7 @@ public class CommonFunction {
 	 public void clickUsingActions(WebElement element)
 	 {
 		 
-		 Actions action=new Actions(driver);
+		 Actions action=new Actions(WebDriverManager.driver);
 		 action.moveToElement(element).click(element).build().perform();
 		 
 	 }
@@ -193,7 +193,7 @@ public class CommonFunction {
 	  */
 	 public void clickusingEnterKey(WebElement element)
 	 {
-		Actions action=new Actions(driver);
+		Actions action=new Actions(WebDriverManager.driver);
 		action.moveToElement(element).sendKeys(Keys.ENTER).build().perform();
 		 
 	 }
@@ -205,7 +205,7 @@ public class CommonFunction {
 	 
 	 public void clickusingJavascript(WebElement element)
 	 {
-		 ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
+		 ((JavascriptExecutor)WebDriverManager.driver).executeScript("arguments[0].click();", element);
 		 
 	 }
 	 
@@ -285,59 +285,59 @@ public class CommonFunction {
 	 
 	 public void dragAndDrop(WebElement source,WebElement target)
 	 {
-		 Actions action = new Actions(driver);
+		 Actions action = new Actions(WebDriverManager.driver);
 		 action.dragAndDrop(source, target).build().perform();
 		 
 	 }
 	 
 	 public void acceptAlertBox()
 	 {
-		 Alert alert = driver.switchTo().alert();
+		 Alert alert = WebDriverManager.driver.switchTo().alert();
 		 alert.accept();
 	 }
 	 
 	 public void dismisAlertBox()
 	 {
-		 Alert alert = driver.switchTo().alert();
+		 Alert alert = WebDriverManager.driver.switchTo().alert();
 		 alert.dismiss();
 	 }
 	 
 	 public String getAlertBoxText()
 	 {
-		 Alert alert = driver.switchTo().alert();
+		 Alert alert = WebDriverManager.driver.switchTo().alert();
 		String text= alert.getText();
 		return text;
 	 }
 	 
 	 public void moveToFrame(WebElement element)
 	 {
-		 driver.switchTo().frame(element);
+		 WebDriverManager.driver.switchTo().frame(element);
 	 }
 	 
 	 public void refresh() 
 	 {
-		 driver.navigate().refresh();
+		 WebDriverManager.driver.navigate().refresh();
 	 }
 	 
 	 public String getCurrentURL() {
-		String currentURL= driver.getCurrentUrl();
+		String currentURL= WebDriverManager.driver.getCurrentUrl();
 		return currentURL;
 	 }
 	 
 	 public String getTitelText()
 	 {
-		 String title= driver.getTitle();
+		 String title= WebDriverManager.driver.getTitle();
 		 return title;
 	 }
 	 
 	 public void maxWindow()
 	 {
-		 driver.manage().window().maximize();
+		 WebDriverManager.driver.manage().window().maximize();
 	 }
 	 
 	 public void TearDown()
 	 {
-	 driver.quit();
+	 WebDriverManager.driver.quit();
 	 
 	 }
 	 

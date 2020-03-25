@@ -4,14 +4,15 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 
+import com.company.factory.WebDriverManager;
+
 public class ImplicitlyWait {
 
-	protected WebDriver driver;
 	
 	
 	public ImplicitlyWait() {
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		WebDriverManager.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 	}
 }

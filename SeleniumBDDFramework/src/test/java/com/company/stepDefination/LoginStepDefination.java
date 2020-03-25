@@ -12,7 +12,7 @@ public class LoginStepDefination {
 
 	CommonFunction com =new CommonFunction();
 	
-	LoginPageClass loginPage=new LoginPageClass();
+	
 	public LoginStepDefination() {
 		WebDriverManager manager=new WebDriverManager();
 		manager.initalizeDriver();
@@ -33,6 +33,7 @@ public class LoginStepDefination {
 		
 		@When("^the user enter valued value in username\"([^\"]*)\"$")
 		public void the_user_enter_valued_value_in_username(String arg1) throws Throwable {
+			LoginPageClass loginPage=new LoginPageClass();
 			loginPage.loginInsystem();
 		}
 
@@ -52,11 +53,26 @@ public class LoginStepDefination {
 
 		@Then("^the user succefully login on dashbordPage$")
 		public void the_user_succefully_login_on_dashbordPage() throws Throwable {
+			LoginPageClass loginPage=new LoginPageClass();
 			
 			loginPage.validatDashborPage();
 		}
 
-	
+		@When("^the user enter invalid userName$")
+		public void the_user_enter_invalid_userName() throws Throwable {
+			LoginPageClass loginPage=new LoginPageClass();
+			loginPage.loginInsystem();
+		}
+
+		@When("^the user enter invalid password$")
+		public void the_user_enter_invalid_password() throws Throwable {
+
+		}
+
+		@Then("^the following message display$")
+		public void the_following_message_display() throws Throwable {
+
+		}
 	
 	
 	

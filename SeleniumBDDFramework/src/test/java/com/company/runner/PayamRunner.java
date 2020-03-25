@@ -11,7 +11,8 @@ import cucumber.api.junit.Cucumber;
         monochrome =true,
 
                  glue = "com.company.stepDefination", 
-                 format= {"pretty", "html:target/cucumber-reprots/cucumber-pretty"})
+                 plugin= {"pretty", "html:target/cucumber-reprots/cucumber-pretty",
+                		 "json:Reports/cucumber-json/cucumber.json",})
 
 
 

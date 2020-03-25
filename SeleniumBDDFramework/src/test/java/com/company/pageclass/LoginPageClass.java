@@ -1,10 +1,10 @@
 package com.company.pageclass;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.company.factory.WebDriverManager;
 import com.company.utils.CommonFunction;
 
 public class LoginPageClass {
@@ -12,11 +12,10 @@ public class LoginPageClass {
 	CommonFunction com = new CommonFunction();
 
 	
-	protected WebDriver driver;
 	
 	public LoginPageClass() {
 
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(WebDriverManager.driver, this);
 	}
 	
 	@FindBy(id = "Email")
@@ -27,12 +26,16 @@ public class LoginPageClass {
 	public WebElement password_txtbox;
 	
 	
-	@FindBy(className = "button-1 login-button")
+	@FindBy(xpath = "//input[@class = 'button-1 login-button']")
 	public WebElement login_button;
 	
 	
-	@FindBy(className = "logo-lg")
+	@FindBy(xpath = "//span[@class = 'logo-lg']")
 	public WebElement DashborLogo;
+	
+	@FindBy(xpath="//div[@class = 'message-error validation-summary-errors']")
+	public WebElement errorMessage;
+	
 	
 	
 	
