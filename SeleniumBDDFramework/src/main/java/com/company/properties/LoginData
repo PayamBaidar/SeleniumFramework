@@ -1,0 +1,10 @@
+
+#positive Scenario
+userName: admin123
+password: admin 
+
+#Negative Scenario
+userName: admin123
+password: admin 
+userName: admin123
+password: admin  

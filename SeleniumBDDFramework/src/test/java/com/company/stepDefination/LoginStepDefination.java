@@ -1,6 +1,7 @@
 package com.company.stepDefination;
 
 import com.company.factory.WebDriverManager;
+import com.company.lowLeveReport.LogReporter;
 import com.company.pageclass.LoginPageClass;
 import com.company.utils.CommonFunction;
 
@@ -12,22 +13,26 @@ public class LoginStepDefination {
 
 	CommonFunction com =new CommonFunction();
 	
+	LogReporter logger =new LogReporter();
+	
 	
 	public LoginStepDefination() {
 		WebDriverManager manager=new WebDriverManager();
 		manager.initalizeDriver();
+		logger.debug("I have opend my browser ");
 	}
 
 		@Given("^the user is on URL\"([^\"]*)\"$")
 		public void the_user_is_on_URL(String URL) throws Throwable {
 			com.navigateUrl(URL);
-			
+			logger.debug("I have navigated to url "+ URL);
 		}
 
 		
 		
 		@Given("^the user is on Admin area demo Page$")
 		public void the_user_is_on_Admin_area_demo_Page() throws Throwable {
+		
 		}
 
 		
@@ -35,6 +40,7 @@ public class LoginStepDefination {
 		public void the_user_enter_valued_value_in_username(String arg1) throws Throwable {
 			LoginPageClass loginPage=new LoginPageClass();
 			loginPage.loginInsystem();
+			logger.debug("if the test case fale it will not show this message");
 		}
 
 		
@@ -71,6 +77,8 @@ public class LoginStepDefination {
 
 		@Then("^the following message display$")
 		public void the_following_message_display() throws Throwable {
+//			ReportHelper helper=new ReportHelper();
+//			helper.generateCucumberReport();
 
 		}
 	
